@@ -13,6 +13,7 @@ export function getWeather(city: string) {
     )
     .then((res) => {
       return {
+        name: res.body.name,
         temp: res.body.main.temp - 273,
         condition: res.body.weather[0].main,
         windSpeed: res.body.wind.speed,

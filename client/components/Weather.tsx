@@ -1,14 +1,28 @@
 import Tooltip from './Tooltip'
 import React from 'react'
 
-export default function Weather({ city }) {
+export default function Weather({
+  city,
+  leftStyle,
+  bottomStyle,
+  temp,
+  condition,
+  windSpeed,
+  windDirection,
+}) {
   const divName = `${city}-div`
 
   return (
     <div className={divName}>
-      <Tooltip>
+      <Tooltip
+        temp={Math.trunc(temp)}
+        condition={condition}
+        windSpeed={windSpeed}
+        windDirection={windDirection}
+        bottomStyle={bottomStyle}
+        leftStyle={leftStyle}
+      >
         <svg
-          className="Gisborne"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"

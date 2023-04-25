@@ -10,7 +10,7 @@ export default function Tooltip({
   bottomStyle,
   leftStyle,
 }) {
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
   const styles = show
     ? {
