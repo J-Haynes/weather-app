@@ -51,3 +51,22 @@ ul {
   bottom: 0px;
   width: 100%;
 }
+
+.nz-img {
+  margin: auto;
+  display: block;
+}
+
+.Gisborne {
+  position: relative;
+  bottom: 526px;
+  left: 900px;
+}
+
+.Gisborne:hover {
+  transform: scale(1.2);
+}
+
+.map-div {
+  padding: 15px 0px 15px 0px
+}

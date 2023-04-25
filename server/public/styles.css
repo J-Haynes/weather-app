@@ -1,3 +1,24 @@
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./client/styles/tooltip.css ***!
+  \********************************************************************************************************************/
+.tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  visibility: hidden;
+  padding: 5px;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.7) transparent transparent;
+}
 /*!******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./client/styles/index.css ***!
   \******************************************************************************************************************/
@@ -53,6 +74,25 @@ ul {
   position: fixed;
   bottom: 0px;
   width: 100%;
+}
+
+.nz-img {
+  margin: auto;
+  display: block;
+}
+
+.Gisborne {
+  position: relative;
+  bottom: 526px;
+  left: 900px;
+}
+
+.Gisborne:hover {
+  transform: scale(1.2);
+}
+
+.map-div {
+  padding: 15px 0px 15px 0px;
 }
 
 /*# sourceMappingURL=styles.css.map*/
