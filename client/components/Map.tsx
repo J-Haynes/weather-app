@@ -5,7 +5,7 @@ import { getWeather } from '../apis/clientApi'
 import { WeatherModel } from '../../models/WeatherModel'
 
 export default function Map() {
-  const gisborne = 'wellington'
+  const gisborne = 'gisborne'
 
   const [gisborneWeather, setGisborneWeather] = useState({} as WeatherModel)
 

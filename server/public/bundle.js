@@ -158,7 +158,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Map() {
-  const gisborne = 'wellington';
+  const gisborne = 'gisborne';
   const [gisborneWeather, setGisborneWeather] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     (0,_apis_clientApi__WEBPACK_IMPORTED_MODULE_2__.getWeather)(gisborne).then(res => setGisborneWeather(res)).catch(err => console.log(err.message));
