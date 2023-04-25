@@ -9,7 +9,7 @@ export function fetchKanyeApi() {
 export function getWeather(city: string) {
   return request
     .get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4b7a145139db79b7509628f9c48b4b73`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=86451f9c43ef7bea67d144c1f8f4a53f`
     )
     .then((res) => {
       return {

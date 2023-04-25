@@ -89,6 +89,8 @@ img {
 }
 
 .gisborne-div {
+  position: relative;
   width: auto;
   height: auto;
+  display: flex;
 }

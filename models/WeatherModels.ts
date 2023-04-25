@@ -1,5 +1,5 @@
 export interface WeatherModel {
-  name: string
+  name?: string
   condition: string
   temp: number
   windDirection: number
@@ -7,12 +7,12 @@ export interface WeatherModel {
 }
 
 export interface citys {
-  gisborne: WeatherModel
-  auckland: WeatherModel
-  wellington: WeatherModel
-  napier: WeatherModel
-  kaitaia: WeatherModel
-  taranaki: WeatherModel
-  taupo: WeatherModel
-  hamilton: WeatherModel
+  gisborne?: WeatherModel
+  wellington?: WeatherModel
+  // auckland: WeatherModel
+  // napier: WeatherModel
+  // kaitaia: WeatherModel
+  // taranaki: WeatherModel
+  // taupo: WeatherModel
+  // hamilton: WeatherModel
 }

@@ -11,9 +11,15 @@ export default function Weather({
   windDirection,
 }) {
   const divName = `${city}-div`
+  const svgClass = `${city}-svg`
+
+  const divStyle = {
+    bottom: Number(bottomStyle),
+    left: Number(leftStyle),
+  }
 
   return (
-    <div className={divName}>
+    <div className={divName} style={divStyle}>
       <Tooltip
         temp={Math.trunc(temp)}
         condition={condition}
@@ -23,6 +29,7 @@ export default function Weather({
         leftStyle={leftStyle}
       >
         <svg
+          className={svgClass}
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
