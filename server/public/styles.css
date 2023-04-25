@@ -83,8 +83,8 @@ ul {
 
 .Gisborne {
   position: relative;
-  bottom: 526px;
-  left: 900px;
+  bottom: 543px;
+  left: 616px;
 }
 
 .Gisborne:hover {
@@ -93,6 +93,18 @@ ul {
 
 .map-div {
   padding: 15px 0px 15px 0px;
+  display: block;
+  width: 768px;
+  height: 1024px;
+  margin: 0 auto;
+}
+
+.test {
+  margin: auto;
+}
+
+img {
+  transform: rotate(180 deg);
 }
 
 /*# sourceMappingURL=styles.css.map*/
