@@ -107,4 +107,9 @@ img {
   transform: rotate(180 deg);
 }
 
+.wind-arrow {
+  margin: auto;
+  display: block;
+}
+
 /*# sourceMappingURL=styles.css.map*/
