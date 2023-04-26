@@ -33,6 +33,8 @@ export default function Weather({
           <svg
             style={divStyle}
             className={svgClass}
+            fill="red"
+            stroke="black"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"

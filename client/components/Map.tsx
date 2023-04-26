@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 import { getWeather } from '../apis/clientApi'
 
-import { WeatherModel, citys } from '../../models/WeatherModels'
+import { WeatherModel } from '../../models/WeatherModels'
 
 import Weather from './Weather'
 
 export default function Map() {
   const [weather, setWeather] = useState({} as WeatherModel[])
   const [fetchedWeather, setFetchedWeather] = useState(false)
-
-  // const [gisborneWeather, setGisborneWeather] = useState({})
-  // const [gotGisborneWeather, setGotGisborneWeather] = useState(false)
 
   const cityArray = [
     {
@@ -50,18 +47,6 @@ export default function Map() {
     },
   ]
 
-  // const clickHandler = () => {
-  //   for (let i = 0; i < cityArray.length; i++) {
-  //     getWeather(cityArray[i].name)
-  //       .then((res) => {
-  //         setWeather((weather[i] = res))
-  //         console.log('weather array', weather)
-  //       })
-  //       .catch((err) => console.log(err.message))
-  //   }
-  //   setFetchedWeather(true)
-  // }
-
   const clickHandler = () => {
     Promise.all(
       cityArray.map((city) => {
@@ -78,27 +63,10 @@ export default function Map() {
       })
   }
 
-  // const weather = [
-  //   {
-  //     name: 'Gisborne',
-  //     condition: 'Sunny',
-  //     temp: 21,
-  //     windDirection: 73,
-  //     windSpeed: 2,
-  //   },
-  //   {
-  //     name: 'Wellington',
-  //     condition: 'Windy',
-  //     temp: 17,
-  //     windDirection: 73,
-  //     windSpeed: 2,
-  //   },
-  // ]
-
   return (
     <>
       <div className="button-div">
-        <button onClick={clickHandler}>click</button>
+        <button onClick={clickHandler}>Get the weather</button>
       </div>
       <div className="container">
         <div className="map-div">

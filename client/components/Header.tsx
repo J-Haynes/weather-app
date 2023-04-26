@@ -8,7 +8,9 @@ export default function Header() {
       </div>
       <div className="nav-div">
         <ul>
-          <li>home</li>
+          <a href="https://github.com/J-Haynes/weather-app">
+            <li>source</li>
+          </a>
           <li>about</li>
         </ul>
       </div>

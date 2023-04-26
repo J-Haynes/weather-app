@@ -6,7 +6,8 @@
   padding: 5px;
   border-radius: 5px;
   width: 150px;
-  border: 1px solid white
+  border: 1px solid white;
+  z-index: 1;
 }
 .tooltip-arrow {
   position: absolute;

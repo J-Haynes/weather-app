@@ -3,7 +3,8 @@ html {
 }
 
 body {
-margin: 0
+  margin: 0;
+  background-color: rgb(77, 67, 67)
 }
 
 p {
@@ -13,8 +14,9 @@ p {
 .nav {
   display: flex;
   justify-content: space-between;
-  width: 750px;
-  margin: auto
+  max-width: 1000px;
+  margin: auto;
+  color: white;
 }
 
 .nav-div ul {
@@ -90,6 +92,7 @@ img {
 .wind-arrow {
   margin: auto;
   display: block;
+  filter: sepia(1);
 }
 
 .gisborne-div, .wellington-div, .auckland-div, .napier-div, .kaitaia-div, .taupo-div, .hamilton-div {
@@ -119,4 +122,25 @@ img {
 .gisborne-div .mouseover-div {
   position: fixed;
   z-index: 1;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+li:hover {
+  color: red;
+  cursor: pointer
+}
+
+button {
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 10px 40px;
+}
+
+button:hover {
+  border: 1px solid red;
+  cursor: pointer;
 }
