@@ -1,32 +1,36 @@
 import React, { useState } from 'react'
 import '../styles/tooltip.css'
 
+import { capitalise } from './Helpers'
+
 export default function Tooltip({
   temp,
   condition,
   windSpeed,
   windDirection,
   children,
-  bottomStyle,
+  topStyle,
   leftStyle,
+  city,
 }) {
   const [show, setShow] = useState(false)
 
   const styles = show
     ? {
         visibility: 'visible',
-        bottom: Number(bottomStyle),
+        top: Number(topStyle),
         left: Number(leftStyle),
       }
     : {
-        bottom: bottomStyle,
-        left: leftStyle,
+        top: Number(topStyle),
+        left: Number(leftStyle),
       }
 
   return (
     <>
       {/* <div className="tooltip" style={show ? { visibility: 'visible' } : {}}> */}
       <div className="tooltip" style={styles}>
+        <p>{capitalise(city)}</p>
         <p>Temperature: {temp}°C</p>
         <p>Condition: {condition}</p>
         <p>Wind: {windSpeed}km/h </p>
@@ -39,6 +43,7 @@ export default function Tooltip({
         <span className="tooltip-arrow" />
       </div>
       <div
+        className="mouseover-div"
         // {...rest}
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}

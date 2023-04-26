@@ -9,6 +9,7 @@
   padding: 5px;
   border-radius: 5px;
   width: 150px;
+  border: 1px solid white;
 }
 
 .tooltip-arrow {
@@ -91,12 +92,16 @@ ul {
   transform: scale(1.2);
 }
 
-.map-div {
+.map-div, .pin-div {
   padding: 15px 0px 15px 0px;
-  display: block;
+  display: inline-block;
   width: 768px;
   height: 1024px;
   margin: 0 auto;
+}
+
+.pin-div {
+  position: absolute;
 }
 
 .test {
@@ -112,11 +117,33 @@ img {
   display: block;
 }
 
-.gisborne-div {
-  position: relative;
+.gisborne-div, .wellington-div, .auckland-div, .napier-div, .kaitaia-div, .taupo-div, .hamilton-div {
+  position: absolute;
   width: auto;
   height: auto;
+  display: inline-block;
+  min-width: 215px;
+}
+
+.container {
+  width: 768px;
   display: flex;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+}
+
+.mouseover-div {
+  width: 32px;
+}
+
+.gisborne-div .mouseover-div {
+  position: fixed;
+  z-index: 1;
 }
 
 /*# sourceMappingURL=styles.css.map*/

@@ -6,7 +6,7 @@ import { WeatherModel, citys } from '../../models/WeatherModels'
 import Weather from './Weather'
 
 export default function Map() {
-  const [weather, setWeather] = useState([] as WeatherModel[])
+  const [weather, setWeather] = useState({} as WeatherModel[])
   const [fetchedWeather, setFetchedWeather] = useState(false)
 
   // const [gisborneWeather, setGisborneWeather] = useState({})
@@ -15,56 +15,67 @@ export default function Map() {
   const cityArray = [
     {
       name: 'gisborne',
-      leftStyle: 500,
-      bottomStyle: 500,
+      topStyle: 310,
+      leftStyle: 615,
     },
     {
       name: 'wellington',
-      leftStyle: 100,
-      bottomStyle: 100,
+      topStyle: 615,
+      leftStyle: 323,
     },
-    // {
-    //   name: 'auckland',
-    //   leftStyle: 100,
-    //   bottomStyle: 100,
-    // },
-    // {
-    //   name: 'napier',
-    //   leftStyle: 100,
-    //   bottomStyle: 100,
-    // },
-    // {
-    //   name: 'kaitaia',
-    //   leftStyle: 100,
-    //   bottomStyle: 100,
-    // },
-    // {
-    //   name: 'taranaki',
-    //   leftStyle: 100,
-    //   bottomStyle: 100,
-    // },
-    // {
-    //   name: 'taupo',
-    //   leftStyle: 100,
-    //   bottomStyle: 100,
-    // },
-    // {
-    //   name: 'hamilton',
-    //   leftStyle: 100,
-    //   bottomStyle: 100,
-    // },
+    {
+      name: 'auckland',
+      topStyle: 110,
+      leftStyle: 330,
+    },
+    {
+      name: 'napier',
+      topStyle: 403,
+      leftStyle: 514,
+    },
+    {
+      name: 'kaitaia',
+      topStyle: -83,
+      leftStyle: 192,
+    },
+    {
+      name: 'taupo',
+      topStyle: 311,
+      leftStyle: 436,
+    },
+    {
+      name: 'hamilton',
+      topStyle: 205,
+      leftStyle: 370,
+    },
   ]
 
+  // const clickHandler = () => {
+  //   for (let i = 0; i < cityArray.length; i++) {
+  //     getWeather(cityArray[i].name)
+  //       .then((res) => {
+  //         setWeather((weather[i] = res))
+  //         console.log('weather array', weather)
+  //       })
+  //       .catch((err) => console.log(err.message))
+  //   }
+  //   setFetchedWeather(true)
+  // }
+
   const clickHandler = () => {
-    for (let i = 0; i < cityArray.length; i++) {
-      getWeather(cityArray[i].name)
-        .then((res) => {
-          setWeather((weather[i] = res))
-          console.log(weather)
-        })
-        .catch((err) => console.log(err.message))
-    }
-    setFetchedWeather(true)
+    Promise.all(
+      cityArray.map((city) => {
+        return getWeather(city.name)
+      })
+    )
+      .then((results) => {
+        setWeather(results)
+        setFetchedWeather(true)
+        console.log(weather)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   // const weather = [
@@ -86,45 +97,30 @@ export default function Map() {
 
   return (
     <>
-      <div className="map-div">
-        <img src="./images/nz.png" className="nz-img" alt="nz" />
-        {cityArray.map((city, i) => {
-          return (
-            fetchedWeather && (
+      <div className="button-div">
+        <button onClick={clickHandler}>click</button>
+      </div>
+      <div className="container">
+        <div className="map-div">
+          <img src="./images/nz.png" className="nz-img" alt="nz" />
+        </div>
+        <div className="pin-div">
+          {cityArray.map((city, i) => {
+            return weather.length === cityArray.length ? (
               <Weather
-                key={city.name}
                 city={city.name}
+                key={city.name}
                 leftStyle={city.leftStyle}
-                bottomStyle={city.bottomStyle}
+                topStyle={city.topStyle}
                 condition={weather[i].condition}
                 temp={weather[i].temp}
                 windSpeed={weather[i].windSpeed}
                 windDirection={weather[i].windDirection}
               />
-            )
-          )
-        })}
+            ) : null
+          })}
+        </div>
       </div>
-      <button onClick={clickHandler}>click</button>
     </>
   )
 }
-
-// ;<Tooltip
-//   temp={Math.trunc(weather.temp)}
-//   condition={weather.condition}
-//   windSpeed={weather.windSpeed}
-//   windDirection={weather.windDirection}
-//   bottomStyle="553"
-//   leftStyle="543"
-// >
-//   <svg
-//     className="Gisborne"
-//     xmlns="http://www.w3.org/2000/svg"
-//     width="24"
-//     height="24"
-//     viewBox="0 0 24 24"
-//   >
-//     <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
-//   </svg>
-// </Tooltip>
