@@ -8,7 +8,11 @@ export default function Header() {
       </div>
       <div className="nav-div">
         <ul>
-          <a href="https://github.com/J-Haynes/weather-app">
+          <a
+            href="https://github.com/J-Haynes/weather-app"
+            target="_blank"
+            rel="noreferrer"
+          >
             <li>source</li>
           </a>
           <li>about</li>
