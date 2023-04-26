@@ -145,8 +145,16 @@ button:hover {
   cursor: pointer;
 }
 
+.footer {
+  color: white
+}
+
 svg {
   animation: popup 0.8s;
+}
+
+svg:hover {
+  transform: scale(1.1)
 }
 
 @keyframes popup {
