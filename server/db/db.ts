@@ -8,3 +8,7 @@ const connection = knex(config[environment])
 export function getWeather(db = connection) {
   return db('weather').select('*')
 }
+
+export function updateWeather(updatedWeather, db = connection) {
+  return db('weather').update(updatedWeather)
+}

@@ -5,10 +5,10 @@
 exports.up = function (knex) {
   return knex.schema.createTable('weather', (table) => {
     table.increments('id').primary()
-    table.string('name')
+    table.string('cityName')
     table.integer('temp')
     table.string('condition')
-    table.integer('windSspeed')
+    table.integer('windSpeed')
     table.integer('windDeg')
     table.integer('topStyle')
     table.integer('leftStyle')

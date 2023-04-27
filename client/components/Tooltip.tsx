@@ -7,7 +7,7 @@ export default function Tooltip({
   temp,
   condition,
   windSpeed,
-  windDirection,
+  windDeg,
   children,
   topStyle,
   leftStyle,
@@ -38,7 +38,7 @@ export default function Tooltip({
           className="wind-arrow"
           src="./images/arrow.png"
           alt="wind speed direction"
-          style={{ transform: `rotate(${windDirection - 180}deg)` }}
+          style={{ transform: `rotate(${windDeg - 180}deg)` }}
         ></img>
         <span className="tooltip-arrow" />
       </div>

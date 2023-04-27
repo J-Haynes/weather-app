@@ -30,3 +30,7 @@ export function getWeather(city: string) {
 export function getWeatherApi() {
   return request.get(weatherUrl).then((res) => res.body)
 }
+
+export function updateWeatherApi(updatedWeather) {
+  return request.post(weatherUrl)
+}

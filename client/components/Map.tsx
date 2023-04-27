@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { getWeather, getWeatherApi } from '../apis/clientApi'
+import { getWeather, getWeatherApi, updateWeatherApi } from '../apis/clientApi'
 
 import { WeatherModel } from '../../models/WeatherModels'
 
 import Weather from './Weather'
 
 export default function Map() {
-  const [weather, setWeather] = useState({} as WeatherModel[])
+  const [weather, setWeather] = useState([] as WeatherModel[])
+
   const [fetchedWeather, setFetchedWeather] = useState(false)
 
   const cityArray = [
@@ -47,41 +48,49 @@ export default function Map() {
     },
   ]
 
-  const clickHandler = () => {
+  const clickHandler1 = () => {
     Promise.all(
-      cityArray.map((city) => {
+      weather.map((city) => {
         return getWeather(city.name)
       })
     )
       .then((results) => {
-        setWeather(results)
-        setFetchedWeather(true)
-        console.log(weather)
+        console.log(results)
+        updateWeatherApi(results)
       })
-      .catch((error) => {
-        console.log(error)
+      .catch((err) => {
+        console.log(err.message)
       })
   }
 
-  const apiTest = () => {
-    getWeatherApi()
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err.message))
-  }
+  // const clickHandler = () => {
+  //   Promise.all(
+  //     cityArray.map((city) => {
+  //       return getWeather(city.name)
+  //     })
+  //   )
+  //     .then((results) => {
+  //       setWeather(results)
+  //       setFetchedWeather(true)
+  //       console.log(weather)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
 
   useEffect(() => {
-    getWeatherApi()
-      .then((res) => setWeather(res))
-      .catch((err) => console.log(err.message))
-  }, [])
-
-  console.log(weather)
+    if (weather.length == 0) {
+      getWeatherApi()
+        .then((res) => setWeather(res))
+        .catch((err) => console.log(err.message))
+    }
+  }, [weather])
 
   return (
     <>
       <div className="button-div">
-        <button onClick={clickHandler}>Get the weather</button>
-        <button onClick={apiTest}>test</button>
+        <button onClick={clickHandler1}>Get the weather</button>
       </div>
       <div className="container">
         <div className="map-div">
@@ -89,7 +98,7 @@ export default function Map() {
         </div>
         <div className="pin-div">
           {cityArray.map((city, i) => {
-            return weather.length === cityArray.length ? (
+            return weather[i] ? (
               <Weather
                 city={city.name}
                 key={city.name}
@@ -98,7 +107,7 @@ export default function Map() {
                 condition={weather[i].condition}
                 temp={weather[i].temp}
                 windSpeed={weather[i].windSpeed}
-                windDirection={weather[i].windDirection}
+                windDeg={weather[i].windDeg}
               />
             ) : null
           })}

@@ -8,7 +8,7 @@ export default function Weather({
   temp,
   condition,
   windSpeed,
-  windDirection,
+  windDeg,
 }) {
   const divName = `${city}-div`
   const svgClass = `${city}-svg`
@@ -26,7 +26,7 @@ export default function Weather({
           temp={Math.trunc(temp)}
           condition={condition}
           windSpeed={windSpeed}
-          windDirection={windDirection}
+          windDeg={windDeg}
           leftStyle={-71}
           topStyle={-8}
         >
