@@ -1,6 +1,7 @@
 import request from 'superagent'
 
 const kanyeUrl = 'https://api.kanye.rest/'
+const weatherUrl = '/weather'
 
 export function fetchKanyeApi() {
   return request.get(kanyeUrl).then((res) => res.body.quote)
@@ -24,4 +25,8 @@ export function getWeather(city: string) {
       console.log(err.message)
       return err.message
     })
+}
+
+export function getWeatherApi() {
+  return request.get(weatherUrl).then((res) => res.body)
 }

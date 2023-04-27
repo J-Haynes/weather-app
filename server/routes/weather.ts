@@ -9,8 +9,4 @@ router.get('/', (req, res) => {
     .catch((err) => console.log(err.message))
 })
 
-// router.get('/', (req, res) => {
-//   return res.json(jack)
-// })
-
 export default router

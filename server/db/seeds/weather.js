@@ -13,6 +13,8 @@ exports.seed = async function (knex) {
       condition: 'Sunny',
       wind_speed: 2,
       wind_deg: 90,
+      topStyle: 310,
+      leftStyle: 615,
       date: 1682543943,
     },
     {
@@ -22,6 +24,8 @@ exports.seed = async function (knex) {
       condition: 'Windy',
       wind_speed: 13,
       wind_deg: 270,
+      topStyle: 615,
+      leftStyle: 323,
       date: 1682543943,
     },
   ])

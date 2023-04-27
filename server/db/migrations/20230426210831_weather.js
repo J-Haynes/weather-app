@@ -8,8 +8,10 @@ exports.up = function (knex) {
     table.string('name')
     table.integer('temp')
     table.string('condition')
-    table.integer('wind_speed')
-    table.integer('wind_deg')
+    table.integer('windSspeed')
+    table.integer('windDeg')
+    table.integer('topStyle')
+    table.integer('leftStyle')
     table.date('date')
   })
 }

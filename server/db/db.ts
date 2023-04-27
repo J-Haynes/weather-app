@@ -1,4 +1,4 @@
-import config from '../../knexfile'
+import config from './knexfile'
 import knex from 'knex'
 
 type Environment = 'production' | 'test' | 'development'
@@ -6,5 +6,5 @@ const environment = (process.env.NODE_ENV as Environment) || 'development'
 const connection = knex(config[environment])
 
 export function getWeather(db = connection) {
-  return db('weather').select()
+  return db('weather').select('*')
 }

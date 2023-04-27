@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { getWeather } from '../apis/clientApi'
+import React, { useEffect, useState } from 'react'
+import { getWeather, getWeatherApi } from '../apis/clientApi'
 
 import { WeatherModel } from '../../models/WeatherModels'
 
@@ -63,10 +63,25 @@ export default function Map() {
       })
   }
 
+  const apiTest = () => {
+    getWeatherApi()
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err.message))
+  }
+
+  useEffect(() => {
+    getWeatherApi()
+      .then((res) => setWeather(res))
+      .catch((err) => console.log(err.message))
+  }, [])
+
+  console.log(weather)
+
   return (
     <>
       <div className="button-div">
         <button onClick={clickHandler}>Get the weather</button>
+        <button onClick={apiTest}>test</button>
       </div>
       <div className="container">
         <div className="map-div">
