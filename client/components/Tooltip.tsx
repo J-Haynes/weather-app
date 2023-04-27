@@ -33,7 +33,7 @@ export default function Tooltip({
         <p>{capitalise(city)}</p>
         <p>Temperature: {temp}°C</p>
         <p>Condition: {condition}</p>
-        <p>Wind: {windSpeed}km/h </p>
+        <p>Wind: {windSpeed} km/h </p>
         <img
           className="wind-arrow"
           src="./images/arrow.png"

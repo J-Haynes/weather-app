@@ -58,6 +58,11 @@ export default function Map() {
         console.log(results)
         updateWeatherApi(results)
       })
+      .then(() => {
+        Promise.all(getWeatherApi().then((res) => setWeather(res))).catch(
+          (err) => console.log(err.message)
+        )
+      })
       .catch((err) => {
         console.log(err.message)
       })
@@ -90,6 +95,7 @@ export default function Map() {
   return (
     <>
       <div className="button-div">
+        {weather[0] && <p>last fetched: {Date(weather[0].date)}</p>}
         <button onClick={clickHandler1}>Get the weather</button>
       </div>
       <div className="container">
