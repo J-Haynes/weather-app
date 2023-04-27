@@ -23,7 +23,7 @@ export default function Weather({
       <div className={divName} style={divStyle}>
         <Tooltip
           city={city}
-          temp={Math.trunc(temp)}
+          temp={Math.round(temp * 10) / 10}
           condition={condition}
           windSpeed={windSpeed}
           windDeg={windDeg}

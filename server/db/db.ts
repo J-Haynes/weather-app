@@ -1,3 +1,4 @@
+import { WeatherModel } from '../../models/WeatherModels'
 import config from './knexfile'
 import knex from 'knex'
 
@@ -10,5 +11,9 @@ export function getWeather(db = connection) {
 }
 
 export function updateWeather(updatedWeather, db = connection) {
-  return db('weather').update(updatedWeather)
+  const queries = updatedWeather.map((data) => {
+    const { name, ...updatedData } = data
+    return db('weather').where('name', name).update(updatedData)
+  })
+  return Promise.all(queries)
 }

@@ -1,6 +1,5 @@
 import express from 'express'
-import { getWeather } from '../db/db'
-import { updateWeatherApi } from '../../client/apis/clientApi'
+import { getWeather, updateWeather } from '../db/db'
 
 const router = express.Router()
 
@@ -10,8 +9,8 @@ router.get('/', (req, res) => {
     .catch((err) => console.log(err.message))
 })
 
-router.post('/', (req, res) => {
-  updateWeather()
+router.patch('/', (req, res) => {
+  updateWeather(req.body)
     .then((updatedWeather) => res.json(updatedWeather))
     .catch((err) => console.log(err.message))
 })

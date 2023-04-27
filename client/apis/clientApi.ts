@@ -18,7 +18,8 @@ export function getWeather(city: string) {
         temp: res.body.main.temp - 273,
         condition: res.body.weather[0].main,
         windSpeed: res.body.wind.speed,
-        windDirection: res.body.wind.deg,
+        windDeg: res.body.wind.deg,
+        date: Date.now(),
       }
     })
     .catch((err) => {
@@ -32,5 +33,8 @@ export function getWeatherApi() {
 }
 
 export function updateWeatherApi(updatedWeather) {
-  return request.post(weatherUrl)
+  return request
+    .patch(weatherUrl)
+    .send(updatedWeather)
+    .then((res) => res.body)
 }
