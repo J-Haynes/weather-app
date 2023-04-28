@@ -8,8 +8,6 @@ import Weather from './Weather'
 export default function Map() {
   const [weather, setWeather] = useState([] as WeatherModel[])
 
-  const [fetchedWeather, setFetchedWeather] = useState(false)
-
   const cityArray = [
     {
       name: 'gisborne',
@@ -59,10 +57,9 @@ export default function Map() {
         updateWeatherApi(results)
       })
       .then(() => {
-        Promise.all(getWeatherApi().then((res) => setWeather(res))).catch(
-          (err) => console.log(err.message)
-        )
+        return getWeatherApi()
       })
+      .then((res) => setWeather(res))
       .catch((err) => {
         console.log(err.message)
       })

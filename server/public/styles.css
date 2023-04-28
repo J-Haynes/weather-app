@@ -19,7 +19,7 @@
   left: 50%;
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.7) transparent transparent;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent;
 }
 /*!******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./client/styles/index.css ***!

@@ -5,7 +5,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('weather', (table) => {
     table.increments('id').primary()
-    table.string('cityName')
+    table.string('name')
     table.integer('temp')
     table.string('condition')
     table.integer('windSpeed')

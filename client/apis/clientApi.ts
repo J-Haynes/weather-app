@@ -1,4 +1,5 @@
 import request from 'superagent'
+import { WeatherModel } from '../../models/WeatherModels'
 
 const kanyeUrl = 'https://api.kanye.rest/'
 const weatherUrl = '/weather'
