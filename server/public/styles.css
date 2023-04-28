@@ -121,7 +121,7 @@ img {
   filter: sepia(1);
 }
 
-.gisborne-div, .wellington-div, .auckland-div, .napier-div, .kaitaia-div, .taupo-div, .hamilton-div {
+.Gisborne-div, .Wellington-div, .Auckland-div, .Hastings-div, .Kaitaia-div, .Taupo-div, .Hamilton-div {
   position: absolute;
   width: auto;
   height: auto;
@@ -145,7 +145,7 @@ img {
   width: 32px;
 }
 
-.gisborne-div .mouseover-div {
+.Gisborne-div .mouseover-div {
   position: absolute;
   z-index: 1;
 }

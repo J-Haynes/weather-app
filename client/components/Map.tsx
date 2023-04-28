@@ -3,48 +3,13 @@ import { getWeather, getWeatherApi, updateWeatherApi } from '../apis/clientApi'
 
 import { WeatherModel } from '../../models/WeatherModels'
 
+import { returnDate } from './Helpers'
+
 import Weather from './Weather'
 
 export default function Map() {
   const [weather, setWeather] = useState([] as WeatherModel[])
-
-  const cityArray = [
-    {
-      name: 'gisborne',
-      topStyle: 310,
-      leftStyle: 615,
-    },
-    {
-      name: 'wellington',
-      topStyle: 615,
-      leftStyle: 323,
-    },
-    {
-      name: 'auckland',
-      topStyle: 110,
-      leftStyle: 330,
-    },
-    {
-      name: 'napier',
-      topStyle: 403,
-      leftStyle: 514,
-    },
-    {
-      name: 'kaitaia',
-      topStyle: -83,
-      leftStyle: 192,
-    },
-    {
-      name: 'taupo',
-      topStyle: 311,
-      leftStyle: 436,
-    },
-    {
-      name: 'hamilton',
-      topStyle: 205,
-      leftStyle: 370,
-    },
-  ]
+  const [fetchDate, setFetchDate] = useState('')
 
   const clickHandler1 = () => {
     Promise.all(
@@ -65,26 +30,15 @@ export default function Map() {
       })
   }
 
-  // const clickHandler = () => {
-  //   Promise.all(
-  //     cityArray.map((city) => {
-  //       return getWeather(city.name)
-  //     })
-  //   )
-  //     .then((results) => {
-  //       setWeather(results)
-  //       setFetchedWeather(true)
-  //       console.log(weather)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  // }
-
   useEffect(() => {
     if (weather.length == 0) {
       getWeatherApi()
-        .then((res) => setWeather(res))
+        .then((res) => {
+          setWeather(res)
+          const theDate = String(new Date(res[0].date))
+          console.log(new Date(res[0].date))
+          setFetchDate(theDate)
+        })
         .catch((err) => console.log(err.message))
     }
   }, [weather])
@@ -92,7 +46,7 @@ export default function Map() {
   return (
     <>
       <div className="button-div">
-        {weather[0] && <p>last fetched: {Date(weather[0].date)}</p>}
+        {weather[0] && <p>last fetched: {fetchDate}</p>}
         <button onClick={clickHandler1}>Get the weather</button>
       </div>
       <div className="container">
@@ -100,7 +54,7 @@ export default function Map() {
           <img src="./images/nz.png" className="nz-img" alt="nz" />
         </div>
         <div className="pin-div">
-          {cityArray.map((city, i) => {
+          {weather.map((city, i) => {
             return weather[i] ? (
               <Weather
                 city={city.name}
