@@ -120,7 +120,7 @@ img {
 }
 
 .gisborne-div .mouseover-div {
-  position: fixed;
+  position: absolute;
   z-index: 1;
 }
 
