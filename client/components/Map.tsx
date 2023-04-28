@@ -11,7 +11,7 @@ export default function Map() {
   const [weather, setWeather] = useState([] as WeatherModel[])
   const [fetchDate, setFetchDate] = useState('')
 
-  const clickHandler1 = () => {
+  const clickHandler = () => {
     Promise.all(
       weather.map((city) => {
         return getWeather(city.name)
@@ -20,6 +20,7 @@ export default function Map() {
       .then((results) => {
         console.log(results)
         updateWeatherApi(results)
+        setFetchDate(returnDate())
       })
       .then(() => {
         return getWeatherApi()
@@ -36,7 +37,7 @@ export default function Map() {
         .then((res) => {
           setWeather(res)
           const theDate = String(new Date(res[0].date))
-          console.log(new Date(res[0].date))
+          console.log('the date', theDate)
           setFetchDate(theDate)
         })
         .catch((err) => console.log(err.message))
@@ -47,7 +48,7 @@ export default function Map() {
     <>
       <div className="button-div">
         {weather[0] && <p>last fetched: {fetchDate}</p>}
-        <button onClick={clickHandler1}>Get the weather</button>
+        <button onClick={clickHandler}>Get the weather</button>
       </div>
       <div className="container">
         <div className="map-div">
