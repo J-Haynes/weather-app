@@ -10,7 +10,7 @@ export function getWeather(db = connection) {
   return db('weather').select('*')
 }
 
-export function updateWeather(updatedWeather, db = connection) {
+export function updateWeather(updatedWeather: WeatherModel[], db = connection) {
   const queries = updatedWeather.map((data) => {
     const { name, ...updatedData } = data
     return db('weather').where('name', name).update(updatedData)
