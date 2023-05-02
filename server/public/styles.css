@@ -96,7 +96,6 @@ ul {
 }
 
 .map-div, .pin-div {
-  padding: 15px 0px 15px 0px;
   display: inline-block;
   width: 768px;
   height: 1024px;
@@ -133,7 +132,6 @@ img {
   width: 768px;
   display: flex;
   margin: 0 auto;
-  padding-top: 80px;
 }
 
 .button-div {
@@ -164,11 +162,32 @@ button {
   font-size: 20px;
   border-radius: 10px;
   padding: 10px 40px;
+  cursor: pointer;
+  border: 1px solid grey;
 }
 
 button:hover {
   border: 1px solid red;
-  cursor: pointer;
+}
+
+button:disabled {
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 10px 40px;
+}
+
+button:disabled:hover {
+  border: 1px solid grey;
+  cursor: not-allowed;
+}
+
+.button-div {
+  display: flex;
+}
+
+.fetch-div {
+  display: block;
+  color: white;
 }
 
 .footer {

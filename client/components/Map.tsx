@@ -10,6 +10,7 @@ import Weather from './Weather'
 export default function Map() {
   const [weather, setWeather] = useState([] as WeatherModel[])
   const [fetchDate, setFetchDate] = useState('')
+  const [button, setButton] = useState(true)
 
   const clickHandler = () => {
     Promise.all(
@@ -21,6 +22,8 @@ export default function Map() {
         console.log(results)
         updateWeatherApi(results)
         setFetchDate(returnDate())
+        // setButton(!button)
+        buttonTimeout()
       })
       .then(() => {
         return getWeatherApi()
@@ -43,11 +46,24 @@ export default function Map() {
     }
   }, [weather])
 
+  const buttonTimeout = () => {
+    setButton(false)
+    setTimeout(() => setButton(true), 30000)
+  }
+
   return (
     <>
       <div className="button-div">
-        <button onClick={clickHandler}>Get the weather</button>
-        {weather[0] && <p>last fetched: {fetchDate}</p>}
+        {button ? (
+          <button onClick={clickHandler}>Get the weather</button>
+        ) : (
+          <button disabled onClick={clickHandler}>
+            Get the weather
+          </button>
+        )}
+      </div>
+      <div className="fetch-div">
+        {weather[0] && <p>Last fetched: {fetchDate}</p>}
       </div>
       <div className="container">
         <div className="map-div">

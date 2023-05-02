@@ -15,7 +15,6 @@ export default function Header() {
           >
             <li>source</li>
           </a>
-          <li>about</li>
         </ul>
       </div>
     </div>
