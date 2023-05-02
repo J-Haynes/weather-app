@@ -3,5 +3,26 @@ export function capitalise(string) {
 }
 
 export function returnDate() {
-  return String(new Date())
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
+  return `${new Date().toLocaleTimeString('en-US')} ${String(
+    new Date().toLocaleString('en-us', options)
+  )}`
+}
+
+export function formatDate(date: string) {
+  const theDate = new Date(date)
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
+  return `${theDate.toLocaleTimeString('en-US')} ${String(
+    theDate.toLocaleString('en-us', options)
+  )}`
 }

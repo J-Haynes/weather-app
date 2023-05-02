@@ -3,7 +3,7 @@ import { getWeather, getWeatherApi, updateWeatherApi } from '../apis/clientApi'
 
 import { WeatherModel } from '../../models/WeatherModels'
 
-import { returnDate } from './Helpers'
+import { returnDate, formatDate } from './Helpers'
 
 import Weather from './Weather'
 
@@ -37,8 +37,7 @@ export default function Map() {
         .then((res) => {
           setWeather(res)
           const theDate = String(new Date(res[0].date))
-          console.log('the date', theDate)
-          setFetchDate(theDate)
+          setFetchDate(formatDate(theDate))
         })
         .catch((err) => console.log(err.message))
     }
@@ -47,8 +46,8 @@ export default function Map() {
   return (
     <>
       <div className="button-div">
-        {weather[0] && <p>last fetched: {fetchDate}</p>}
         <button onClick={clickHandler}>Get the weather</button>
+        {weather[0] && <p>last fetched: {fetchDate}</p>}
       </div>
       <div className="container">
         <div className="map-div">

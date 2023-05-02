@@ -1,8 +1,8 @@
 {
-  "name": "my-fullstack-collection-scss",
+  "name": "weather-app",
   "version": "0.1.0",
   "description": "Build a fullstack collection app, with SCSS",
-  "repository": "https://github.com/dev-academy-challenges/my-fullstack-collection-scss",
+  "repository": "https://github.com/J-Haynes/weather-app",
   "main": "server/index.ts",
   "scripts": {
     "build": "run-p build:client build:server",
@@ -21,7 +21,7 @@
   "keywords": [
     "fullstack"
   ],
-  "author": "Dev Academy Aotearoa",
+  "author": "Jack Haynes",
   "license": "ISC",
   "babel": {
     "presets": [
