@@ -4,6 +4,9 @@
   "description": "Build a fullstack collection app, with SCSS",
   "repository": "https://github.com/J-Haynes/weather-app",
   "main": "server/index.ts",
+  "engines": {
+    "node": "18.16.0"
+  },
   "scripts": {
     "build": "run-p build:client build:server",
     "build:client": "npm run webpack -- --mode production",
